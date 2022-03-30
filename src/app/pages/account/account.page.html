@@ -1,0 +1,62 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="headerToolbar">
+    <ion-title class="title"><ion-img src="../../assets/imgs/logo.png" style="width:30%"></ion-img> </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+ <div class="contentDiv">
+ 	<div class="subContentDiv">
+        <div class="divTitle">تعديل معلومات الحساب</div>
+        <form style="display: contents;" (ngSubmit)="updateAccount()">
+        <div class="paddingBottom">
+            <ion-item lines="none" class="{{errorNumber}}">
+                <ion-input type="number" [(ngModel)]="number" [ngModelOptions]="{standalone: true}" placeholder="رقم الجوال" (ionInput)="checkNumber($event.target.value)"></ion-input><span class="class962">+962</span>
+            </ion-item>
+            <div class="errorTitle" *ngIf="isErrorNumber == 0">الرجاء إدخال رقم الجوال</div>
+        </div> 
+        <div class="paddingBottom">
+            <ion-item lines="none" class="{{errorFullName}}">
+                <ion-input type="text" [(ngModel)]="fullName" [ngModelOptions]="{standalone: true}" placeholder="الاسم الكامل" (ionInput)="checkFullName($event.target.value)"></ion-input>
+            </ion-item>
+            <div class="errorTitle" *ngIf="isErrorFullName == 0">الرجاء إدخال الاسم الكامل</div>
+        </div>       
+         <div class="paddingBottom">
+            <ion-item lines="none" class="{{errorMsg}}">
+                <ion-textarea rows="5" [(ngModel)]="msg" [ngModelOptions]="{standalone: true}" placeholder="عنوان السكن" (ionInput)="checkMsg($event.target.value)"></ion-textarea>
+            </ion-item>
+            <div class="errorTitle" *ngIf="isErrorMsg == 0">الرجاء إدخال عنوان السكن</div>
+        </div>
+        <div>
+          <div class="divButtonClass">
+            <ion-button class="oneButton fontSize17" (click)="updateAccount()" id="submit"><span class="paddingBottom5">تعديل</span></ion-button>
+          </div>
+        </div>
+        <button style="visibility:hidden" id="submit" ion-button type="submit" ></button>
+        </form>
+        <div class="loadingData" *ngIf ="loadingShow == 1">
+            <img src="../../assets/imgs/loading.gif" class="imageLoading"><span>يرجى الانتظار ...</span>
+        </div>
+       
+    </div>
+ </div>
+</ion-content>
+<ion-footer class="ion-no-border">
+<ion-toolbar class="footerToolbar">
+	<div class="width100">
+       <div class="menueClass menueClassActive" (click)="functionGoToHome()">
+        	<div><ion-icon name="home" slot="start"></ion-icon></div>
+            <div class="labelClass">الرئيسية</div>
+        </div>
+        <div class="menueborder">&nbsp;</div>
+        <div class="menueClass" (click)="functionGoToShoppingcart()">
+        	<div><ion-icon name="cart" slot="start"></ion-icon></div>
+            <div class="labelClass">سلتي</div>
+        </div>
+        <div class="menueborder">&nbsp;</div>
+        <div class="menueClass" (click)="functionOpenMenue()">
+        	<div><ion-icon name="list" slot="start"></ion-icon></div>
+            <div class="labelClass">قائمتي</div>
+        </div>
+    </div>
+</ion-toolbar>
+</ion-footer>

@@ -1,0 +1,8 @@
+{
+  "name": "Ozone",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "c3497b18"
+}

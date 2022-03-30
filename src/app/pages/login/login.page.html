@@ -1,0 +1,69 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="headerToolbar">
+    <ion-title class="title"><ion-img src="../../assets/imgs/logo.png" style="width:30%"></ion-img> </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+ <div class="contentDiv">
+ 	<div class="subContentDiv">
+          <div class="divTitle">مرحبا بك مرة اخرى</div>
+        <div class="divSubTitle">إدخل الى حسابك الان</div>
+        <form style="display: contents;" (ngSubmit)="checkUser()">
+        <div class="paddingBottom">
+            <ion-item lines="none" class="{{errorEmail}}">
+                <ion-input type="text" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" placeholder="البريد الالكتروني إو رقم الجوال" (ionInput)="checkEmail($event.target.value)"></ion-input>
+            </ion-item>
+            <div class="errorTitle" *ngIf="isErrorEmail == 0">الرجاء إدخال البريد الالكتروني إو رقم الجوال</div>
+        </div> 
+        <div class="paddingBottom">
+            <ion-item lines="none" class="{{errorPassword}}">
+                <ion-input [type]="showPassword ? 'text' : 'password'" [ngModelOptions]="{standalone: true}" [(ngModel)]="password" placeholder="كلمة المرور" (ionInput)="checkPassword($event.target.value)"></ion-input><ion-icon [name]="showPassword ? 'eye' : 'eye-off'" class="eye" (click)="changeInputType()"></ion-icon>
+            </ion-item>
+            <div class="errorTitle" *ngIf="isErrorPassword == 0">الرجاء إدخال كلمة المرور</div>
+        </div>
+        
+        <div class="paddingBottom paddingTop3">
+            <div class="forgetPassword" (click)="forgotPasssword()">نسيت كلمة المرور</div>
+        </div>
+        <div>
+          <div class="divButtonClass">
+            <ion-button class="oneButton fontSize17" (click)="checkUser()" id="submit"><span class="paddingBottom5">دخول</span></ion-button>
+          </div>
+        </div>
+        <button style="visibility:hidden" id="submit" ion-button type="submit" ></button>
+        </form>
+        <div class="loadingData" *ngIf ="loadingShow == 1">
+            <img src="../../assets/imgs/loading.gif" class="imageLoading"><span>يرجى الانتظار ...</span>
+        </div>
+        <div style="text-align:center; font-size:14px;color:#a7a7a7">
+        أو سجل الدخول من خلال
+        </div>
+        <div>
+          <div class="divButtonClassIcon">
+         <ion-icon name="logo-facebook" class="iconClassFaceBook" (click)="facebookLogin()"></ion-icon>
+            <ion-icon name="logo-google" class="iconClassGoogle" (click)="googlePluseLogin()"></ion-icon>
+          </div>
+        </div>
+    </div>
+ </div>
+</ion-content>
+<ion-footer class="ion-no-border">
+<ion-toolbar class="footerToolbar">
+	<div class="width100">
+       <div class="menueClass" (click)="functionGoToHome()">
+        	<div><ion-icon name="home" slot="start"></ion-icon></div>
+            <div class="labelClass">الرئيسية</div>
+        </div>
+        <div class="menueborder">&nbsp;</div>
+        <div class="menueClass" (click)="functionGoToShoppingcart()">
+        	<div><ion-icon name="cart" slot="start"></ion-icon></div>
+            <div class="labelClass">سلتي</div>
+        </div>
+        <div class="menueborder">&nbsp;</div>
+        <div class="menueClass" (click)="functionOpenMenue()">
+        	<div><ion-icon name="list" slot="start"></ion-icon></div>
+            <div class="labelClass">قائمتي</div>
+        </div>
+    </div>
+</ion-toolbar>
+</ion-footer>

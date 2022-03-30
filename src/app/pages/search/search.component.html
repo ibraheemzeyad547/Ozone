@@ -1,0 +1,38 @@
+<ion-content>
+ 	<div (click)="closeModel()">
+   		<ion-icon name="close" style="font-size:30px"></ion-icon>
+    </div>
+ <div class="contentDiv">
+ 	<div class="subContentDiv">
+        <div class="divTitle">إبحث عن منتج</div>
+        <form style="display: contents;" (ngSubmit)="functionSearch()">
+        <div class="paddingBottom">
+            <ion-item lines="none">
+                <ion-input type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" placeholder="إسم المنتج"></ion-input>
+            </ion-item>
+        </div> 
+         <div class="paddingBottom">
+            <ion-item lines="none">
+                <ion-input type="text" [(ngModel)]="disc" [ngModelOptions]="{standalone: true}" placeholder="وصف المنتج" ></ion-input>
+            </ion-item>
+        </div> 
+         <div class="paddingBottom">
+            <ion-item lines="none">
+                <ion-input type="text" [(ngModel)]="fromPrice" [ngModelOptions]="{standalone: true}" placeholder="السعر من" ></ion-input>
+            </ion-item>
+        </div> 
+         <div class="paddingBottom">
+            <ion-item lines="none">
+                <ion-input type="text" [(ngModel)]="toPrice" [ngModelOptions]="{standalone: true}" placeholder="السعر الى" ></ion-input>
+            </ion-item>
+        </div> 
+        <div>
+          <div class="divButtonClass">
+            <ion-button class="oneButton fontSize17" (click)="functionSearch()" id="submit"><span class="paddingBottom5">بحث</span></ion-button>
+          </div>
+        </div>
+        <button style="visibility:hidden" id="submit" ion-button type="submit" ></button>
+        </form>
+    </div>
+ </div>
+</ion-content>

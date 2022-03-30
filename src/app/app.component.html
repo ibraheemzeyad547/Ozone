@@ -1,0 +1,39 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" menuId="first" type="overlay" side="end" class="my-custom-menu">
+      <ion-content>
+        <ion-list id="labels-list">
+          <ion-list-header>
+          <ion-img src="../assets/imgs/menuePage.png"></ion-img>
+          </ion-list-header>
+           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPagesfirst; let i = index">
+            <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none"  class="menuListItem" detail="false" routerLinkActive="selected">
+              <ion-icon slot="end" name="chevron-back"></ion-icon>
+              <ion-label>{{ p.title }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+       <ion-menu contentId="main-content" menuId="last" type="overlay" side="end">
+      <ion-content>
+        <ion-list id="labels-list">
+          <ion-list-header>
+          <ion-img src="../assets/imgs/menuePage.png"></ion-img>
+          </ion-list-header>
+           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPagesLast; let i = index">
+            <ion-item *ngIf="i != 4" routerDirection="root" [routerLink]="[p.url]" lines="none"  class="menuListItem" detail="false" routerLinkActive="selected">
+              <ion-icon slot="end" name="chevron-back"></ion-icon>
+              <ion-label>{{ p.title }}</ion-label>
+            </ion-item>
+            <ion-item *ngIf="i == 4" lines="none" (click)="signOut()"  class="menuListItem" >
+              <ion-icon slot="end" name="chevron-back"></ion-icon>
+              <ion-label>{{ p.title }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content" dir="rtl"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

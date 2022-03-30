@@ -1,0 +1,50 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="headerToolbar">
+    <ion-title class="title"><ion-img src="../../assets/imgs/logo.png" style="width:30%"></ion-img> </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+ <div class="contentDiv">
+ 	<div class="subContentDiv">
+          <div class="divTitle">نسيت كلمة المرور</div>
+        <form style="display: contents;" (ngSubmit)="forgotPassword()">
+        <div class="paddingBottom">
+            <ion-item lines="none" class="{{errorEmail}}">
+                <ion-input type="text" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" placeholder="البريد الالكتروني" (ionInput)="checkEmail($event.target.value)"></ion-input>
+            </ion-item>
+            <div class="errorTitle" *ngIf="isErrorEmail == 0">الرجاء إدخال البريد الالكتروني</div>
+        </div> 
+        <div>
+          <div class="divButtonClass">
+            <ion-button class="oneButton fontSize17" (click)="forgotPassword()" id="submit"><span class="paddingBottom5">إرسال</span></ion-button>
+          </div>
+        </div>
+        <button style="visibility:hidden" id="submit" ion-button type="submit" ></button>
+        </form>
+        <div class="loadingData" *ngIf ="loadingShow == 1">
+            <img src="../../assets/imgs/loading.gif" class="imageLoading"><span>يرجى الانتظار ...</span>
+        </div>
+        
+    </div>
+ </div>
+</ion-content>
+<ion-footer class="ion-no-border">
+<ion-toolbar class="footerToolbar">
+	<div class="width100">
+       <div class="menueClass" (click)="functionGoToHome()">
+        	<div><ion-icon name="home" slot="start"></ion-icon></div>
+            <div class="labelClass">الرئيسية</div>
+        </div>
+        <div class="menueborder">&nbsp;</div>
+        <div class="menueClass" (click)="functionGoToShoppingcart()">
+        	<div><ion-icon name="cart" slot="start"></ion-icon></div>
+            <div class="labelClass">سلتي</div>
+        </div>
+        <div class="menueborder">&nbsp;</div>
+        <div class="menueClass" (click)="functionOpenMenue()">
+        	<div><ion-icon name="list" slot="start"></ion-icon></div>
+            <div class="labelClass">قائمتي</div>
+        </div>
+    </div>
+</ion-toolbar>
+</ion-footer>

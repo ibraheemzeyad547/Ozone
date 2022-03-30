@@ -1,0 +1,187 @@
+.headerToolbar{
+--background: linear-gradient(-90deg, #f15a2b, #f57430) !important;
+--border-width:0px;
+--padding-top:12px;
+--padding-bottom:5px;
+--padding-start:0px;
+--padding-end:0px;
+}
+ion-content{
+--background: #ffffff;
+}
+ion-title{
+	padding-inline:10px !important;
+}
+.ios ion-title {
+   position: inherit;
+   width:100%
+}
+.searchIcon{
+	font-size:30px;
+	color:#ffffff
+}
+/*content style*/
+.slidesData{
+	width:auto;
+	height:auto;
+	margin-left:5px;
+	margin-right:5px
+}
+.textSlider{
+	padding-right: 22px;
+    padding-bottom: 7px;
+	padding-left: 22px;
+	padding-top: 2px;
+    border: 2px solid;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #dc4b24;
+}
+.textSliderCheck{
+	padding-right: 22px;
+    padding-bottom: 7px;
+	padding-left: 22px;
+	padding-top: 2px;
+    border: 2px solid;
+    border-radius: 20px;
+    font-size: 14px;
+    color: var(--ion-color-formPlaseHolderColor);
+}
+.storesImage{
+	border-radius: 15px;
+    margin-right: 5px;
+    width: 80px;
+    height: 80px;
+    margin-top: 5px;
+}
+.storesBox{
+	color: #a7a8aa;
+	border-radius: 5px;
+	height:auto;
+	min-height: 117px
+}
+.storesSubBox{
+	min-height: 100px;
+    height: auto;
+}
+.storesImageDiv{
+	float:right;
+	padding-left:12px;
+}
+.storesImageIcon{
+	float:right;
+    margin: 7px 5px 0 5px;
+    border: 2px solid;
+    padding-left: 3px;
+    padding-right: 4px;
+    border-radius: 5px;
+	color: #dc4b24;
+}
+.storesPrice{
+	position:absolute;
+	top:18px;
+	left:10px;
+	border: 1.5px solid;
+	border-radius: 5px;
+	color: #dc4b24;
+	padding: 6px 9px;
+    font-size: 12px;
+	font-weight: 700;
+}
+.storesName{
+	font-size: 14px;
+    color: #dc4b24;
+    font-weight: bold;
+    padding-right: 5px;
+	padding-top:5px
+}
+.productInformation{
+	font-size:12px;
+    color: #a7a8aa;
+	padding-left:5px;
+	padding-top: 3px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-height: 16px;
+    -webkit-box-orient: vertical;
+	 text-overflow: ellipsis;
+	 overflow:hidden		
+}
+.storesSubCatLabel{
+	font-size: 13px;
+    padding-top: 3px;
+    color: #a7a8aa;
+    text-align: right;
+    padding-right: 5px;
+}
+.divEmptyVal{
+    text-align: center;
+    padding-top: 30px;
+}
+.emptyFirstText{
+    font-size: 14px;
+    color:#f15a2b;
+    padding-bottom: 5px;
+}
+.emptyLastText{
+    font-size: 15px;
+     color:#f15a2b;
+}
+/*menu style*/
+ion-icon {
+  font-size: 18px;
+}
+.eye{
+	font-size: 23px;
+    padding-top: 6px;
+	color:var(--ion-color-formPlaseHolderColor);
+}
+ion-footer{
+	background: #ffffff;
+}
+.title {
+	text-align: -webkit-center;
+	padding-top: 40px;
+	padding-bottom: 30px;
+	position: initial;
+}
+.footerToolbar{
+--background: linear-gradient(#ffffff, #cdcdcd);
+--border-width:0px;
+--padding-top:7px;
+--padding-bottom:0px;
+--padding-start:0px;
+--padding-end:0px;
+ border-top-left-radius:25px; 
+ border-top-right-radius:25px;
+ box-shadow: 0px 0px 0px #888, 0px 0px 17px #888;
+ 
+}
+.menueClass{
+	color:var(--ion-color-formPlaseHolderColor);
+	width:32%;
+	float:right;
+	text-align:center;
+	padding-bottom:5px;
+	cursor:pointer;
+}
+.menueborder{
+	color:var(--ion-color-formPlaseHolderColor);
+	width:1%;
+	float:right;
+	text-align:center;
+	padding-bottom:5px;
+	cursor:pointer;
+	border-right: 1px solid;
+    margin-top:8px;
+}
+.menueClassActive{
+	border-bottom:3px solid;
+	color:#d85333;
+}
+.labelClass{
+	margin-top:-5px;
+	font-size:13px !important;
+	padding-bottom:3px;
+}
+/*menu style*/

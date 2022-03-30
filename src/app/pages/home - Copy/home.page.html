@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-toolbar  class="headerToolbar">
+    <ion-title>
+        <div>
+            <ion-grid style="padding-bottom:0px">
+                <ion-row>
+                    <ion-col class="textAlignStart">
+                    	<div style="padding-top:5px"><ion-icon name="search" slot="icon-only" class="searchIcon"  (click)="functionSearch()"></ion-icon></div>
+                    </ion-col>
+                    <ion-col class="textAlignEnd" style="padding-top:10px">
+                    	<div><img src="../../assets/imgs/dd.png" style="width:70px"></div>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  	<div *ngIf="banners==1">
+        <ion-slides pager="true" autoPlay="true" loop="true" (ionSlidesDidLoad)="slidesBannersLoad()" (ionSlideDidChange)="slidesBannersLoad()" #slidesBanners>
+            <ion-slide *ngFor="let items of returnBannersHomeArray">
+               <div><ion-img src={{items.image}} class="bannersHomeImage"></ion-img> </div>
+            </ion-slide>
+        </ion-slides>
+    </div>
+      <div class="padding5">
+        <ion-slides [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }">
+            <ion-slide class="slidesData">
+               <div class="textSlider" (click)="functionProductsAllCat()">الكل</div>
+            </ion-slide>
+            <ion-slide #slidesCatHome *ngFor="let items of returnCategoriesArray; let i=index"  class="slidesData">
+               <div class="{{items.class}}" (click)="functionProductsByCat(items.id,items.check,i)">{{items.title}}</div>
+            </ion-slide>
+        </ion-slides>
+      </div>
+     	<div *ngIf="products!=0">
+            <div>
+             <div class="padding5" style="position: relative;" *ngFor="let items of returnProductsArray;let i = index">
+                <div class="storesBox">
+                    <div class="storesSubBox">
+                     	<div class="storesImageIcon" (click)="functionAddToCart(items.id,items.name,items.catName,items.description,items.image,items.price)">
+                             <ion-icon name="add-outline"></ion-icon>
+                        </div>
+                        <div class="storesImageDiv">
+                             <img src="{{items.image}}" class="storesImage">
+                        </div>
+                        <div style="margin-left:65px">
+                            <div>
+                                <div class="storesName">{{items.name}}</div>
+                                <div class="storesSubCatLabel">{{items.catName}}</div>
+                                <div class="productInformation">{{items.description}}</div>
+                            </div>
+                        </div>
+                         <div class="storesPrice">
+                             <div>السعر</div>
+                             <div>{{items.price}} د</div>
+                        </div>
+                    </div>
+                    <div style="border-top:1.5px solid"></div>
+                </div>
+             </div>
+            </div>
+        </div>
+        <div *ngIf="products==0"  class="divEmptyVal">
+        	<div>
+                <img src="../../assets/imgs/noProduct.png" style="width:150px; height:150px">
+            </div>
+            <div class="emptyFirstText">
+                عذرا! لا يوجد منتجات حاليا
+            </div>
+            <div class="emptyLastText">
+                لم يتم إضافة اي بيانات على هذه الشاشة حاليا
+            </div>
+        </div>
+  <ion-infinite-scroll  *ngIf="products!=0" threshold="100px" (ionInfinite)="loadMoreData($event)">
+        <ion-infinite-scroll-content loadingSpinner="lines" loadingText="يتم سحب البيانات....">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>       
+</ion-content>
+<ion-footer class="ion-no-border">
+<ion-toolbar class="footerToolbar">
+	<div class="width100">
+       <div class="menueClass menueClassActive">
+        	<div><ion-icon name="home" slot="start"></ion-icon></div>
+            <div class="labelClass">الرئيسية</div>
+        </div>
+        <div class="menueborder">&nbsp;</div>
+        <div class="menueClass" (click)="functionGoToShoppingcart()">
+        	<div><ion-icon name="cart" slot="start"></ion-icon></div>
+            <div class="labelClass">سلتي</div>
+        </div>
+        <div class="menueborder">&nbsp;</div>
+        <div class="menueClass" (click)="functionOpenMenue()">
+        	<div><ion-icon name="list" slot="start"></ion-icon></div>
+            <div class="labelClass">قائمتي</div>
+        </div>
+    </div>
+</ion-toolbar>
+</ion-footer>

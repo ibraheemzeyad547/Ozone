@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar  class="headerToolbar">
+    <ion-title>
+        <div>
+            <ion-grid style="padding-bottom:0px">
+                <ion-row>
+                    <ion-col class="textAlignEnd" style="padding-top:10px">
+                    	<div><img src="../../assets/imgs/dd.png" style="width:70px"></div>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  	<div *ngIf="banners==1">
+        <ion-slides pager="true" autoPlay="true" loop="true" (ionSlidesDidLoad)="slidesBannersLoad()" (ionSlideDidChange)="slidesBannersLoad()" #slidesBanners>
+            <ion-slide *ngFor="let items of returnBannersHomeArray">
+               <div><ion-img src={{items.image}} class="bannersHomeImage"></ion-img> </div>
+            </ion-slide>
+        </ion-slides>
+    </div>
+    <div style="padding:5px">
+        <ion-slides pager="false" autoPlay="true" loop="true" (ionSlidesDidLoad)="slidesBannersTowLoad()" (ionSlideDidChange)="slidesBannersTowLoad()" #slidesBannersTow>
+            <ion-slide style="padding-left:5px; padding-right:5px" *ngFor="let items of returnProductsArray">
+               <div (click)="functionStoreInfo(items.id)">
+               	<img src={{items.logo}} style="border-radius:10px">
+               </div>
+            </ion-slide>
+        </ion-slides>
+    </div>
+     	<div *ngIf="products!=0">
+            <div>
+             <div class="padding5" style="position: relative;" *ngFor="let items of returnProductsArray;let i = index">
+                <div class="storesBox">
+                    <div class="storesSubBox" (click)="functionStoreInfo(items.id)">
+                        <div class="storesImageDiv">
+                             <img src="{{items.image}}" class="storesImage">
+                        </div>
+                        <div>
+                            <div>
+                                <div class="storesName">{{items.name}}</div>
+                                <div class="productInformation">{{items.description}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="border-top:1.5px solid"></div>
+                </div>
+             </div>
+            </div>
+        </div>
+        <div *ngIf="products==0"  class="divEmptyVal">
+        	<div>
+                <img src="../../assets/imgs/noProduct.png" style="width:150px; height:150px">
+            </div>
+            <div class="emptyFirstText">
+                عذرا! لا يوجد متاجر حاليا
+            </div>
+            <div class="emptyLastText">
+                لم يتم إضافة اي بيانات على هذه الشاشة حاليا
+            </div>
+        </div>
+  <ion-infinite-scroll  *ngIf="products!=0" threshold="100px" (ionInfinite)="loadMoreData($event)">
+        <ion-infinite-scroll-content loadingSpinner="lines" loadingText="يتم سحب البيانات....">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>       
+</ion-content>
+<ion-footer class="ion-no-border">
+<ion-toolbar class="footerToolbar">
+	<div class="width100">
+       <div class="menueClass menueClassActive">
+        	<div><ion-icon name="home" slot="start"></ion-icon></div>
+            <div class="labelClass">الرئيسية</div>
+        </div>
+        <div class="menueborder">&nbsp;</div>
+        <div class="menueClass" (click)="functionGoToShoppingcart()">
+        	<div><ion-icon name="cart" slot="start"></ion-icon></div>
+            <div class="labelClass">سلتي</div>
+        </div>
+        <div class="menueborder">&nbsp;</div>
+        <div class="menueClass" (click)="functionOpenMenue()">
+        	<div><ion-icon name="list" slot="start"></ion-icon></div>
+            <div class="labelClass">قائمتي</div>
+        </div>
+    </div>
+</ion-toolbar>
+</ion-footer>
